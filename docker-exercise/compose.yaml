@@ -1,0 +1,27 @@
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/docker-exercise
+    depends_on:
+      - mongo
+    develop:
+      watch:
+        - action: sync+restart
+          path: .
+          target: /usr/src/app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
+
+  mongo:
+    image: mongo:7
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
