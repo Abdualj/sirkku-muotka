@@ -8,6 +8,7 @@ export type Artwork = {
   _id: string;
   title: string;
   category: CategoryValue;
+  series?: string;
   year?: string;
   material?: string;
   dimensions?: string;

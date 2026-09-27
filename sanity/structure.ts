@@ -2,6 +2,7 @@ import type { StructureResolver } from 'sanity/structure'
 
 const SINGLETONS = [
   { id: 'homepage', type: 'homepage', title: 'Homepage' },
+  { id: 'worksPage', type: 'worksPage', title: 'Selected Works Page' },
   { id: 'contactPage', type: 'contactPage', title: 'Contact Page' },
   { id: 'siteSettings', type: 'siteSettings', title: 'Site Settings' },
 ]

@@ -5,6 +5,7 @@ export const artworksQuery = groq`
     _id,
     title,
     category,
+    series,
     year,
     material,
     dimensions,
@@ -14,6 +15,8 @@ export const artworksQuery = groq`
 `
 
 export const homepageQuery = groq`*[_type == "homepage"][0]`
+
+export const worksPageQuery = groq`*[_type == "worksPage"][0]`
 
 export const contactPageQuery = groq`*[_type == "contactPage"][0]`
 

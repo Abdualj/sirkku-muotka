@@ -9,13 +9,20 @@ const NAV_ITEMS = [
   { href: "/contacts", label: "Contacts" },
 ];
 
-export default function Sidebar({ brandName }: { brandName: string }) {
+export default function Sidebar({
+  brandName,
+  tagline,
+}: {
+  brandName: string;
+  tagline?: string;
+}) {
   const pathname = usePathname();
 
   return (
     <aside className="sidebar">
       <div>
         <div className="brand">{brandName}</div>
+        {tagline ? <div className="tagline">{tagline}</div> : null}
         <nav>
           {NAV_ITEMS.map((item) => (
             <Link

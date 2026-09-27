@@ -18,6 +18,12 @@ export default defineType({
       rows: 2,
       description: 'Shown at the top of the sidebar in a decorative script font. Press enter where the line should break, e.g. "Sirkku" then "Muotka" on the next line.',
     }),
+    defineField({
+      name: 'tagline',
+      title: 'Tagline',
+      type: 'string',
+      description: 'Short byline shown under the sidebar name, e.g. "Craftsperson, designer and visual artist".',
+    }),
   ],
   preview: {
     prepare() {

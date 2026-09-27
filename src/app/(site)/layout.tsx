@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Caveat, Work_Sans } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 import Sidebar from "@/components/Sidebar";
 import { sanityFetch } from "@/sanity/lib/client";
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: "Selected works by artist Sirkku Muotka.",
 };
 
-type SiteSettings = { siteTitle?: string; brandName?: string };
+type SiteSettings = { siteTitle?: string; brandName?: string; tagline?: string };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const siteSettings = await sanityFetch<SiteSettings>(siteSettingsQuery);
@@ -33,7 +33,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${caveat.variable} ${workSans.variable}`}>
       <body>
         <div className="layout">
-          <Sidebar brandName={brandName} />
+          <Sidebar brandName={brandName} tagline={siteSettings?.tagline} />
           <main>{children}</main>
         </div>
       </body>

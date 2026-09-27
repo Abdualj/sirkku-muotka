@@ -1,9 +1,9 @@
 import { defineField, defineType } from 'sanity'
 
 export const CATEGORIES = [
-  { title: 'Installation Views', value: 'installation' },
   { title: 'Wood Ventures', value: 'wood' },
   { title: 'Collage & Aquarelle', value: 'collage' },
+  { title: 'Installation Views', value: 'installation' },
 ] as const
 
 export default defineType({
@@ -24,6 +24,12 @@ export default defineType({
       description: 'Which tab this artwork appears under on the Selected Works page.',
       options: { list: [...CATEGORIES], layout: 'radio' },
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'series',
+      title: 'Series',
+      type: 'string',
+      description: 'Name of the work series this piece belongs to, e.g. "Fauna". Optional — shown when a viewer opens the work.',
     }),
     defineField({
       name: 'year',
