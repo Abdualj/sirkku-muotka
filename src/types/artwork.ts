@@ -7,11 +7,16 @@ export type CategoryValue = "installation" | "wood" | "collage";
 export type Artwork = {
   _id: string;
   title: string;
-  category: CategoryValue;
   series?: string;
   year?: string;
   material?: string;
   dimensions?: string;
   description?: string;
   image?: ArtworkImage;
+};
+
+export type WorksTab = {
+  _id: string;
+  intro?: string;
+  pieces?: Artwork[] | null;
 };

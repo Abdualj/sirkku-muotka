@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import SocialIcon from "@/components/SocialIcon";
 import { sanityFetch } from "@/sanity/lib/client";
 import { contactPageQuery } from "@/sanity/lib/queries";
 
@@ -22,8 +23,15 @@ export default async function ContactsPage() {
               <a href={`mailto:${contactPage.email}`}>{contactPage.email}</a>
             ) : null}
             {contactPage?.socialLinks?.map((link) => (
-              <a key={link.platform} href={link.url} target="_blank" rel="noopener noreferrer">
-                {link.platform}
+              <a
+                key={link.platform}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.platform}
+                title={link.platform}
+              >
+                <SocialIcon platform={link.platform} />
               </a>
             ))}
           </div>

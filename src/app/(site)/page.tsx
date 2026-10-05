@@ -9,6 +9,7 @@ import type { Image as SanityImage } from "sanity";
 type Homepage = {
   bioText?: string;
   heroImage?: SanityImage & { alt?: string };
+  exhibitionVideoFileUrl?: string;
   exhibitionVideoUrl?: string;
   mediaCaption?: string;
 };
@@ -20,7 +21,9 @@ export default async function Home() {
   return (
     <section className="view">
       <div className="home-media">
-        {videoEmbed ? (
+        {homepage?.exhibitionVideoFileUrl ? (
+          <video src={homepage.exhibitionVideoFileUrl} controls playsInline preload="metadata" />
+        ) : videoEmbed ? (
           <iframe
             src={videoEmbed.embedUrl}
             title="Exhibition video"

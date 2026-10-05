@@ -1,13 +1,10 @@
-import WorksView, { type WorksPageContent } from "@/components/WorksView";
+import WorksView from "@/components/WorksView";
 import { sanityFetch } from "@/sanity/lib/client";
-import { artworksQuery, worksPageQuery } from "@/sanity/lib/queries";
-import type { Artwork } from "@/types/artwork";
+import { worksTabsQuery } from "@/sanity/lib/queries";
+import type { WorksTab } from "@/types/artwork";
 
 export default async function WorksPage() {
-  const [artworks, worksPage] = await Promise.all([
-    sanityFetch<Artwork[]>(artworksQuery),
-    sanityFetch<WorksPageContent>(worksPageQuery),
-  ]);
+  const tabs = await sanityFetch<WorksTab[]>(worksTabsQuery);
 
-  return <WorksView artworks={artworks || []} worksPage={worksPage} />;
+  return <WorksView tabs={tabs || []} />;
 }

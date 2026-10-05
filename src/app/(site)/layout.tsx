@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Caveat, Work_Sans } from "next/font/google";
+import { Parisienne, Work_Sans } from "next/font/google";
 import "../globals.css";
 
 import Sidebar from "@/components/Sidebar";
 import { sanityFetch } from "@/sanity/lib/client";
 import { siteSettingsQuery } from "@/sanity/lib/queries";
 
-const caveat = Caveat({
-  variable: "--font-caveat",
+const parisienne = Parisienne({
+  variable: "--font-parisienne",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: "400",
 });
 
 const workSans = Work_Sans({
@@ -30,7 +30,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const brandName = siteSettings?.brandName || "Sirkku\nMuotka";
 
   return (
-    <html lang="en" className={`${caveat.variable} ${workSans.variable}`}>
+    <html lang="en" className={`${parisienne.variable} ${workSans.variable}`}>
       <body>
         <div className="layout">
           <Sidebar brandName={brandName} tagline={siteSettings?.tagline} />

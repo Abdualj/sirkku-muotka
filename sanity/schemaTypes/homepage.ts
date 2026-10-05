@@ -23,10 +23,17 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'exhibitionVideoFile',
+      title: 'Exhibition video',
+      type: 'file',
+      description: 'Upload a video from your computer (MP4 works best). It is shown at the top of the Home page instead of the hero image.',
+      options: { accept: 'video/*' },
+    }),
+    defineField({
       name: 'exhibitionVideoUrl',
-      title: 'Exhibition video URL',
+      title: 'Or: exhibition video link',
       type: 'url',
-      description: 'Paste a YouTube or Vimeo link. Leave empty to show the hero image instead, or "Exhibition video coming soon" if neither is set.',
+      description: 'Instead of uploading, you can paste a YouTube, Vimeo or Google Drive link. For Drive, set the video\'s General access to "Anyone with the link". An uploaded video is used first if both are set.',
     }),
     defineField({
       name: 'mediaCaption',
