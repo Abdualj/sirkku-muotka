@@ -6,6 +6,19 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'heading',
+      title: 'Heading',
+      type: 'string',
+      description: 'Main title on the Contacts page. Defaults to "Get in touch".',
+    }),
+    defineField({
+      name: 'intro',
+      title: 'Intro text',
+      type: 'text',
+      rows: 3,
+      description: 'Short text under the heading. Defaults to "For exhibitions, commissions, or press inquiries."',
+    }),
+    defineField({
       name: 'email',
       title: 'Public email',
       type: 'string',

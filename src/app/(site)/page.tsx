@@ -22,7 +22,9 @@ export default async function Home() {
     <section className="view">
       <div className="home-media">
         {homepage?.exhibitionVideoFileUrl ? (
-          <video src={homepage.exhibitionVideoFileUrl} controls playsInline preload="metadata" />
+          // The #t fragment makes the browser load and show the opening frame
+          // as the preview, instead of a black box before playback starts.
+          <video src={`${homepage.exhibitionVideoFileUrl}#t=0.1`} controls playsInline preload="metadata" />
         ) : videoEmbed ? (
           <iframe
             src={videoEmbed.embedUrl}

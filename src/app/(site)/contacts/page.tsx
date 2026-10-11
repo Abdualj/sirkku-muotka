@@ -4,6 +4,8 @@ import { sanityFetch } from "@/sanity/lib/client";
 import { contactPageQuery } from "@/sanity/lib/queries";
 
 type ContactPage = {
+  heading?: string;
+  intro?: string;
   email?: string;
   socialLinks?: { platform: string; url: string }[];
 };
@@ -14,8 +16,10 @@ export default async function ContactsPage() {
   return (
     <section className="view">
       <div className="contact-wrap">
-        <h1>Get in touch</h1>
-        <p className="lead">For exhibitions, commissions, or press inquiries.</p>
+        <h1>{contactPage?.heading || "Get in touch"}</h1>
+        <p className="lead">
+          {contactPage?.intro || "For exhibitions, commissions, or press inquiries."}
+        </p>
 
         {contactPage?.email || (contactPage?.socialLinks?.length ?? 0) > 0 ? (
           <div className="contact-details">
